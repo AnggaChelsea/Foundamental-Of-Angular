@@ -1,0 +1,40 @@
+First we should know about foundamental angular such as
+decorators @Input and @Output
+@input and @Output this almost all same , like @Input and @Output this for 
+Send per component to other Components, in angular we can
+sharing per component there 3 ways such as use 
+@Input and @Output and other simple use Variable template '#'
+this about decorators sending data to other Components
+
+[src] this is data binding
+{{}} this is interpolation 
+() this is expresion of ( = += ++ etc.)
+expresion no side effect 
+expression Fast, simple, Idempotent
+
+for hidden the empty data in the other data in looping we can use 
+*ngIf="data?.name" or [hidden]="!data?.name"  so data is empty will hidden
+
+here I'm use ngSwitch for take time ,  (ngSwitchCase)="8:00 am" this will display early mornings
+anf (ngSwitchCase)="10:00 am" this will display middle days and etch. so you can use
+ngSwitch focus to time what you want to display in interface take
+in database but want to display morning only
+and 
+I will givr a special color for special time I can Use 
+[ngClass]="{green: event?.time === '8:00 am'}" or I can use [ngClass]="nameFunction(), 
+and I will make that Function such as 
+getStart(){
+ const early = this?.event && this?.event.time === '8:00 am';
+ return {green: isEarly, bold: isEarly}
+}  
+or I use
+if(this.event && this.event.time === '8:00 am')
+return 'green bold '
+return ''
+
+or Use
+return ['green', 'bold']
+retune []
+
+
+take green in css too
