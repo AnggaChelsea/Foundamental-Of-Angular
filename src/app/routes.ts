@@ -5,7 +5,7 @@ import { CreateEventComponent } from './event/create-event';
 import { EventDetailComponent } from './event/event-detail/event-detail.component';
 import { EventRouterActivator } from './event/event-detail/event-router-activator.service';
 import { EventListResolver } from './shared/event-list-resolver.service';
-import { ProfileComponent } from './users/profile.component';
+
 
 export const appRoutes: Routes = [
   { path: 'create/new', component: CreateEventComponent, canDeactivate:['canDeactiveCreateEvent']
@@ -19,6 +19,5 @@ export const appRoutes: Routes = [
   },
   { path: '', redirectTo: '/events', pathMatch: 'full' },
   { path: '404', component: Error404Component },
-  { path:'profile', component: ProfileComponent},
-  {path:'user', loadChildren:'users/user.module#UserModule'}
+ {path:'users', loadChildren:()=> import('./users/user.module').then((m)=>m.UserModule),},
 ];

@@ -1,12 +1,13 @@
 
 import { Injectable } from '@angular/core'
 import { Subject } from 'rxjs';
-
+import { IEvent } from './event.model'
 @Injectable()
 export class EventService {
-
-  getEvents(){
-    let subject = new Subject<any>();
+//here I use IEvent from model ts, so with IEvent
+//our data atch with interface type
+  getEvents():Subject<IEvent[]>{
+    let subject = new Subject<IEvent[]>();
     setTimeout(()=>{subject.next(this.Event); subject.complete()}, 1000);
     return subject;
   }
@@ -25,14 +26,14 @@ export class EventService {
   }
  
  
-  Event = [
+  Event:IEvent[] = [
     {
       id: 1,
       name: 'Angular Connect',
       date: '9/26/2036',
       time: '10:00 am',
       price: 599.99,
-      image: '../../assets/img/alone.jpg',
+      imageUrl: '../../assets/img/alone.jpg',
       location: {
         address: '1057 DT',
         city: 'London',
@@ -122,7 +123,7 @@ export class EventService {
           name: "Testing Angular 4 Workshop",
           presenter: "Pascal Precht & Christoph Bergdorf",
           duration: 4,
-          lepricevel: "Beginner",
+          level: "Beginner",
           abstract: `In this 6 hour workshop you will learn not only how to test Angular 4, 
           you will also learn how to make the most of your team's efforts. Other topics
           will be convincing your manager that testing is a good idea, and using the new
