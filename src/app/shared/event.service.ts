@@ -24,6 +24,11 @@ export class EventService {
   getData(){
     return this.Event
   }
+  saveEvent(event:any){
+    event.id = 999
+    event.session = []
+    this.Event.push(event)
+  }
  
  
   Event:IEvent[] = [
