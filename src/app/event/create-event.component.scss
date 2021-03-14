@@ -1,3 +1,24 @@
 .button button{
   margin: 5px;
 }
+em{
+  float:right;
+  color: red;
+  padding-left: 10px;
+}
+.error input{
+  background: #E05C65;
+}
+.error ::-webkit-input-placeholder{
+  color:#999;
+}
+.error :moz-placeholder{
+  color:#999; 
+}
+.error ::moz-placeholder{
+  color:#999; 
+}
+.error :-ms-input-placeholder{
+  color:#999; 
+}
+// css yang di atas smua itu mengenai error reactive form angular

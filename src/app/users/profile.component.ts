@@ -1,17 +1,27 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
-  template:`<h2>edit your profile</h2>
-  <hr> <div class="col-md-6">
-  <h3>Edit Photo</h3>
-  <br />
-  <br />
-  <button class="btn btn-primary">Save</button>
-  <button class="btn btn-danger">Cancle</button>
-  </div>
-  `
+  templateUrl:'./profile.component.html'
 })
 
-export class ProfileComponent{
+export class ProfileComponent implements OnInit {
+  profileForm:any = FormBuilder;
+
+  constructor(public fb: FormBuilder, ){
+    this.profileForm = this.fb.group({
+      firstName:[''],
+      lastName:['']
+    })
+  }
+
+  ngOnInit() {
+    // let firstName = new FormControl();
+    // let lastName = new FormControl();
+    // this.profileForm = new FormGroup({
+    //   firstName: firstName,
+    //   lastName:lastName
+    // })
+  }
 
 }

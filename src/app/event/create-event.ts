@@ -9,9 +9,13 @@ import {Router} from '@angular/router';
 
 export class CreateEventComponent{
   isDirty:any = true
+  newEvent:any;
   constructor(private router:Router){}
 
   cancle(){
     this.router.navigate(['/events'])
+  }
+  saveEvent(formValues:any){
+    console.log(formValues)
   }
 }
