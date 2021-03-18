@@ -5,7 +5,7 @@ import { CreateEventComponent } from './event/create-event';
 import { EventDetailComponent } from './event/event-detail/event-detail.component';
 import { EventRouterActivator } from './event/event-detail/event-router-activator.service';
 import { EventListResolver } from './shared/event-list-resolver.service';
-
+import { CreateSesssionComponent } from './event/event-detail/create-session.component'
 
 export const appRoutes: Routes = [
   { path: 'create/new', component: CreateEventComponent, canDeactivate:['canDeactiveCreateEvent']
@@ -17,6 +17,7 @@ export const appRoutes: Routes = [
     component: EventDetailComponent,
     canActivate: [EventRouterActivator],
   },
+  {path:'events/session/new', component:CreateSesssionComponent},
   { path: '', redirectTo: '/events', pathMatch: 'full' },
   { path: '404', component: Error404Component },
  {path:'users', loadChildren:()=> import('./users/user.module').then((m)=>m.UserModule),},

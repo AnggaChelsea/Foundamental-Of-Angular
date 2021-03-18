@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import { EventService } from '../shared/event.service'
 
@@ -8,9 +8,10 @@ import { EventService } from '../shared/event.service'
   styleUrls: ['./create-event.component.scss']
 })
 
-export class CreateEventComponent{
+export class CreateEventComponent {
   isDirty:any = true
   newEvent:any;
+  event:any
   constructor(private router:Router, private eventService:EventService){}
 
   cancle(){

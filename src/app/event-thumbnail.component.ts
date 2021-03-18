@@ -1,10 +1,12 @@
 import { Component, Input, Output, EventEmitter } from "@angular/core";
+import { isProtractorLocator } from "protractor/built/locators";
 
 @Component({
   selector:'event-thumbnail',
   template:`
   <div class="cards">
   <div [routerLink]="['/events', event.id]" class="well hoverwell thubnaill">
+ 
   <h2>{{event.name}}</h2>
   <div>Date: {{event.date}}</div>
   <div [ngClass]="pricePromo()" [ngSwitch]="event.price">
@@ -18,8 +20,9 @@ import { Component, Input, Output, EventEmitter } from "@angular/core";
   <span *ngSwitchCase="'9:00 am'">Afternoon</span>
   <span *ngSwitchDefault>Normal</span>
   </div>
-  <div>city:{{event.location.city}}</div>
-  <div>country:{{event.location.country}}</div>
+ 
+    <div >city:{{event.location.city}}</div>
+    <div>country:{{event.location.country}}</div>
   <div *ngIf="event?.image">
   <div>image : {{event.image}} appStyle</div>
   </div>
@@ -50,6 +53,10 @@ export class EventThumbnailComponent{
  pricePromo(){
   const isPromo = this.event && this.event.price === 400;
   return {red: isPromo, bold: isPromo}
+ }
+ aga(){
+   const kpGobang = this.event && this.event.name === "aga"
+   return {yellow: kpGobang, blod:kpGobang  }
  }
 
 

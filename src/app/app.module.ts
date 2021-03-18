@@ -11,6 +11,7 @@ import {
   EventRouterActivator,
   EventDetailComponent,
   CreateEventComponent,
+  CreateSesssionComponent
 } from './index';
 
 import { EventAppComponent } from './event-app.component';
@@ -29,6 +30,7 @@ import { AuthService } from './users/auth.service';
     RouterModule.forRoot(appRoutes)],
   declarations: [
     EventAppComponent,
+    CreateSesssionComponent,
     EventListComponent,
     EventThumbnailComponent,
     NavBarComponent,
