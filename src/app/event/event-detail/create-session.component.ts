@@ -47,6 +47,8 @@ export class CreateSesssionComponent implements OnInit {
       Validators.maxLength(400),
     ]);
 
+    
+
     this.newSessionForm = new FormGroup({
       name: this.name,
       presenter: this.presenter,
