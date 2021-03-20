@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { control } from 'leaflet';
 import { ISession } from '../../shared/index';
 @Component({
   selector: 'app-create-session',
@@ -44,10 +45,10 @@ export class CreateSesssionComponent implements OnInit {
     this.level = new FormControl('', Validators.required);
     this.abstract = new FormControl('', [
       Validators.required,
-      Validators.maxLength(400),
+      Validators.maxLength(400), this.restrictWord
     ]);
 
-    
+
 
     this.newSessionForm = new FormGroup({
       name: this.name,
@@ -68,6 +69,10 @@ export class CreateSesssionComponent implements OnInit {
       voters: [],
     };
     console.log(session);
+  }
+
+  private restrictWord(control:FormControl): {[key:string] :any}{
+    return control.value.includes('foo')?{'restrictWord':'foo'} : null!
   }
  
 

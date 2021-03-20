@@ -6,6 +6,15 @@ sharing per component there 3 ways such as use
 @Input and @Output and other simple use Variable template '#'
 this about decorators sending data to other Components
 
+if You want to use @Input() this mean like
+''
+input ambil data berbagi data antar per component misalkan
+saya hanya get data di event.component, nah kita kalau mau ambil data event di
+component lain. kita hanya buat @Input() namaclas:namadata[]
+terus di component htmlnya kita buat misalkan
+<component-lain [namaclas]="namadatadariparent?.namaclaschilcomponentcomponentini"></component-lain>
+
+
 [src] this is data binding
 {{}} this is interpolation 
 () this is expresion of ( = += ++ etc.)
