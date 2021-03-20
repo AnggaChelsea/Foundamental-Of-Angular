@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { control } from 'leaflet';
 import { ISession } from '../../shared/index';
@@ -37,7 +37,7 @@ export class CreateSesssionComponent implements OnInit {
   duration!: FormControl;
   level!: FormControl;
   abstract!: FormControl;
-
+  @Output() savesNewSession = new EventEmitter
   ngOnInit() {
     this.name = new FormControl('', Validators.required);
     this.presenter = new FormControl('', Validators.required);
@@ -68,7 +68,7 @@ export class CreateSesssionComponent implements OnInit {
       abstract: formValues.abstract,
       voters: [],
     };
-    console.log(session);
+    this.savesNewSession.emit(session)
   }
 
   private restrictWord(control:FormControl): {[key:string] :any}{

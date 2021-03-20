@@ -4,6 +4,7 @@ import { Subject } from 'rxjs';
 import { IEvent } from './event.model'
 @Injectable()
 export class EventService {
+  
 //here I use IEvent from model ts, so with IEvent
 //our data atch with interface type
   getEvents():Subject<IEvent[]>{
@@ -28,6 +29,12 @@ export class EventService {
     event.id = 999
     event.session = []
     this.Event.push(event)
+  }
+ 
+  updateEvent(event:any){
+    const getIt:any = Event.findIndex((x: { id: any; }) => {
+      return x.id = event.id;
+    })
   }
  
  
